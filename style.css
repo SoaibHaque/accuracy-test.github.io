@@ -52,7 +52,7 @@ body {
 }
 
 .play {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Work Sans', sans-serif;
     padding-block: 3rem;
     text-align: center;
     position: fixed;
@@ -64,10 +64,16 @@ body {
     height: 100vh;
     background: black;
 }
-.play>*{
-    margin-block: 1rem;
-    letter-spacing: 2px;
+
+.play p {
+    font-style: italic;
 }
+
+.play>* {
+    margin-block: 1rem;
+    letter-spacing: 1px;
+}
+
 .play span {
     position: relative;
     font-size: 2rem;
