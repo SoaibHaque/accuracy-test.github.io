@@ -19,7 +19,7 @@ let horrorStart = async () => {
         Selector('audio').pause();
         Selector('#circle').remove();
         Selector('video').play();
-        sT(() => Selector('.video').style.display = 'inline-block', 1000);
+        sT(() => Selector('.video').style.display = 'inline-block', 1500);
     }, time);
 }
 
@@ -53,3 +53,5 @@ Selector('.play').addEventListener('click', () => {
     appendCircle();
     horrorStart();
 });
+
+document.addEventListener('dblclick', () => document.documentElement.exitFullscreen());
