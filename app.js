@@ -19,7 +19,7 @@ let horrorStart = async () => {
         Selector('audio').pause();
         Selector('#circle').remove();
         Selector('video').play();
-        sT(() => Selector('.video').style.display = 'inline-block', 1500);
+        sT(() => Selector('.video').style.display = 'inline-block', 1000);
     }, time);
 }
 
@@ -46,9 +46,26 @@ let timeStart = async () => {
     }, 1000);
 };
 
-Selector('.play').addEventListener('click', () => {
-    document.documentElement.requestFullscreen().catch(e => console.log(e));
+let startCountDown = async () => new Promise((res, rej) => {
     Selector('.play').remove();
+    Selector('.countdown').style.display = 'inline-block';
+    let i = 3;
+    const time = sI(async () => {
+        if (i != 0) {
+            Selector('.countdown span').style.animation = 'scaleup 1s infinite ease-in-out';
+            Selector('.countdown span').innerText = i;
+        } else {
+            Selector('.countdown').style.display = 'none';
+            res();
+            cI(time);
+        }
+        i--;
+    }, 1000);
+})
+
+Selector('.play').addEventListener('click', async () => {
+    document.documentElement.requestFullscreen().catch(e => console.log(e));
+    await startCountDown();
     timeStart();
     appendCircle();
     horrorStart();
