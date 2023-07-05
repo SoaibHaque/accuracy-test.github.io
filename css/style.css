@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: digital;
-    src: url('./digital-regular.ttf');
+    src: url('../font/digital-regular.ttf');
 }
 
 *,
@@ -54,25 +54,22 @@ body {
 .play {
     font-family: 'Work Sans', sans-serif;
     padding-inline: 2rem;
-    text-align: center;
     position: fixed !important;
     z-index: 9999;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: var(--primary-color);
+}
+
+.play_container {
+    height: 60%;
 }
 
 .play p {
     font-style: italic;
 }
 
-.play>* {
-    margin-block: 1rem;
-    letter-spacing: 1px;
-}
-
 .play span {
-    position: relative;
     font-size: 2rem;
     background: white;
     color: black;
@@ -119,8 +116,8 @@ video {
 
 #circle {
     position: absolute;
-    width: 3rem;
-    height: 3rem;
+    width: 50px;
+    height: 50px;
     background: transparent;
     border: 2px solid var(--secondary-color);
     border-radius: 50%;
@@ -131,7 +128,7 @@ video {
 
     0%,
     100% {
-        transform: scale(2);
+        transform: scale(1.5);
     }
 
     50% {
@@ -153,7 +150,6 @@ video {
 
 .countdown,
 .video,
-.play span i,
 .play,
 .countdown>span {
     position: absolute;
@@ -175,7 +171,7 @@ video {
     font-size: 9rem;
 }
 
-@keyframes scaleup {
+@keyframes scaleUp {
     0% {
         transform: translate(-50%, -50%) scale(1);
         filter: opacity(100%);
